@@ -25,10 +25,9 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-prediction = modeldt.predict(df)
-#prediction_proba = modeldt.predict_proba(df)
-
 loaded_model = pickle.load(open("Iris.h5", "rb")) #rb: read binary
+prediction = modeldt.predict(df)
+prediction_proba = modeldt.predict_proba(df)
 
 st.subheader('Class labels and their corresponding index number')
 st.write(Y.unique())
@@ -36,5 +35,5 @@ st.write(Y.unique())
 st.subheader('Prediction')
 st.write(prediction)
 
-#st.subheader('Prediction Probability')
-#st.write(prediction_proba)
+st.subheader('Prediction Probability')
+st.write(prediction_proba)
