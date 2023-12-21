@@ -25,7 +25,7 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-df = pickle.load(open("Iris.h5", "rb")) #rb: read binary
+pickle.load(open("Iris.h5", "rb")) #rb: read binary
 
 st.subheader('Class labels and their corresponding index number')
 st.write(Y.unique())
