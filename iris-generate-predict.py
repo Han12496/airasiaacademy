@@ -25,12 +25,7 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-data = sns.load_dataset('iris')
-X = data.drop(['species'],axis=1)
-Y = data.species.copy()
-
-modeldt = tree.DecisionTreeClassifier()
-modeldt = modeldt.fit(X_train, y_train)
+loaded_model = pickle.load(open("irisdt.h5", "rb")) #rb: read binary
 
 prediction = modeldt.predict(df)
 prediction_proba = modeldt.predict_proba(df)
