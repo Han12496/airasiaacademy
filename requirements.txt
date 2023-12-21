@@ -7,4 +7,6 @@ numpy
 matplotlib.pyplot
 train_test_split
 tensorflow
-sklearn.tree
+scikit-learn.tree
+pickle
+pickle.dump
