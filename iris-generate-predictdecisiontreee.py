@@ -30,18 +30,35 @@ data = sns.load_dataset('iris')
 X = data.drop(['species'],axis=1)
 Y = data.species.copy()
 
-modeldt = pickle.load(open("irisdt.h5", "rb")) #rb: read binary
+#modeldt = pickle.load(open("irisdt.h5", "rb")) #rb: read binary
+
+with open("irisdt.h5", "rb") as file:
+        modeldt = pickle.load(file)
+except Exception as e:
+    st.error(f"Error loading the model: {e}")
 
 prediction = modeldt.predict(df)
 prediction_proba = modeldt.predict_proba(df)
 
-st.subheader('Class labels and their corresponding index number')
-st.write(Y.unique())
+#st.subheader('Class labels and their corresponding index number')
+#st.write(Y.unique())
 
-st.subheader('Prediction')
-st.write(prediction)
+#st.subheader('Prediction')
+#st.write(prediction)
 
-st.subheader('Prediction Probability')
-st.write(prediction_proba)
+#st.subheader('Prediction Probability')
+#st.write(prediction_proba)
 
+col1, col2 = st.beta_columns(2)
+
+with col1:
+    st.subheader('User Input Parameters')
+    st.write(df)
+
+with col2:
+    st.subheader('Prediction')
+    st.write(prediction)
+
+    st.subheader('Prediction Probability')
+    st.write(prediction_proba)
 
