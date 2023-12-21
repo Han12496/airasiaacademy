@@ -4,7 +4,6 @@ pandas
 seaborn
 scikit-learn
 numpy
-matplotlib.pyplot
 train_test_split
 tensorflow
 scikit-learn.tree
