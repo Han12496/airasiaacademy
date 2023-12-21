@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import seaborn as sns
-from sklearn.naive_bayes import GaussianNB
+from sklearn.tree import plot_tree
 
 st.write("# Simple Iris Flower Prediction App")
 st.write("This app predicts the **Iris flower** type!")
@@ -29,11 +29,11 @@ data = sns.load_dataset('iris')
 X = data.drop(['species'],axis=1)
 Y = data.species.copy()
 
-modelGaussianIris = GaussianNB()
-modelGaussianIris.fit(X, Y)
+modeldt = tree.DecisionTreeClassifier()
+modeldt = modeldt.fit(X_train, y_train)
 
-prediction = modelGaussianIris.predict(df)
-prediction_proba = modelGaussianIris.predict_proba(df)
+prediction = modeldt.predict(df)
+prediction_proba = modeldt.predict_proba(df)
 
 st.subheader('Class labels and their corresponding index number')
 st.write(Y.unique())
