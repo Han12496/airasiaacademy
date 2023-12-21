@@ -33,9 +33,9 @@ Y = data.species.copy()
 #modeldt = pickle.load(open("irisdt.h5", "rb")) #rb: read binary
 
 try:
-with open("irisdt.h5", "rb") as file:
+ with open("irisdt.h5", "rb") as file:
         modeldt = pickle.load(file)
-except Exception as e:
+ except Exception as e:
     st.error(f"Error loading the model: {e}")
 
 prediction = modeldt.predict(df)
